@@ -15,4 +15,11 @@
     "stage-0",
     "flow"
   ],
+  "plugins": [
+    ["module-resolver", {
+      "alias": {
+        "@": "./app"
+      }
+    }],
+  ],
 }
