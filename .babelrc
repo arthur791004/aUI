@@ -16,6 +16,7 @@
     "flow"
   ],
   "plugins": [
+    "react-hot-loader/babel",
     ["module-resolver", {
       "alias": {
         "@": "./app"
