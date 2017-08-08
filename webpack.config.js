@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const plugins = [
+  new webpack.HotModuleReplacementPlugin(),
   new webpack.NoEmitOnErrorsPlugin(),
   new HtmlWebpackPlugin({
     template: path.join(process.cwd(), 'app/index.html'),
@@ -12,6 +13,8 @@ const plugins = [
 
 module.exports = {
   entry: [
+    'eventsource-polyfill', // Necessary hot reloading with IE
+    'react-hot-loader/patch',
     path.join(process.cwd(), 'app/app.js'),
   ],
   output: {
@@ -40,6 +43,7 @@ module.exports = {
     contentBase: './build',
     host: '0.0.0.0',
     disableHostCheck: true,
+    hot: true,
   },
 };
 
