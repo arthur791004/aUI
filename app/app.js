@@ -5,7 +5,7 @@ import App from './containers/App';
 const render = () => {
   ReactDOM.render(
     <App />,
-    document.getElementById('app')
+    document.getElementById('app'),
   );
 };
 
