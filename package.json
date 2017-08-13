@@ -5,7 +5,9 @@
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js",
     "lint:eslint": "eslint --ignore-path .gitignore",
+    "lint:stylelint": "stylelint",
     "lint:js": "npm run lint:eslint -- . ",
+    "lint:css": "npm run lint:stylelint -- \"app/**/components/**/*.js\"",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -37,6 +39,8 @@
     "eventsource-polyfill": "^0.9.6",
     "html-webpack-plugin": "^2.30.1",
     "react-hot-loader": "next",
+    "stylelint": "^8.0.0",
+    "stylelint-processor-styled-components": "^0.2.2",
     "webpack": "^3.4.1",
     "webpack-dev-server": "^2.6.1",
     "webpack-hot-middleware": "^2.18.2"
