@@ -19,7 +19,7 @@ module.exports = {
   ],
   output: {
     path: path.resolve(process.cwd(), 'build'),
-    filename:'[name].js',
+    filename: '[name].js',
     chunkFilename: '[name].chunk.js',
   },
   module: {
