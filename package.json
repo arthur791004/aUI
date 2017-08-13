@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "app/app.js",
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.js"
+    "start": "webpack-dev-server --config ./webpack.config.js",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": "https://github.com/arthur791004/aUI.git",
   "author": "arthur <arthur791004>",
@@ -15,6 +17,7 @@
     "styled-components": "^2.1.2"
   },
   "devDependencies": {
+    "@storybook/react": "^3.2.4",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
     "babel-plugin-module-resolver": "^2.7.1",
