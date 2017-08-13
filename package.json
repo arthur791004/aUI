@@ -8,8 +8,13 @@
     "lint:stylelint": "stylelint",
     "lint:js": "npm run lint:eslint -- . ",
     "lint:css": "npm run lint:stylelint -- \"app/**/components/**/*.js\"",
+    "lint:staged": "lint-staged",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
+  },
+  "lint-staged": {
+    "*.js": "lint:eslint",
+    "app/**/components/**/*.js": "lint:stylelint"
   },
   "repository": "https://github.com/arthur791004/aUI.git",
   "author": "arthur <arthur791004>",
@@ -38,6 +43,8 @@
     "eslint-plugin-react": "^7.2.0",
     "eventsource-polyfill": "^0.9.6",
     "html-webpack-plugin": "^2.30.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^4.0.3",
     "react-hot-loader": "next",
     "stylelint": "^8.0.0",
     "stylelint-processor-styled-components": "^0.2.2",
