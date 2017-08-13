@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextField /> should render the component 1`] = `
+<styled.div>
+  <styled.label
+    isFocused={false}
+  >
+    label
+  </styled.label>
+  <styled.input
+    onBlur={[Function]}
+    onFocus={[Function]}
+  />
+  <styled.div />
+  <styled.div
+    isFocused={false}
+  />
+</styled.div>
+`;

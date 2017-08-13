@@ -9,6 +9,11 @@
     "lint:js": "npm run lint:eslint -- . ",
     "lint:css": "npm run lint:stylelint -- \"app/**/components/**/*.js\"",
     "lint:staged": "lint-staged",
+    "pretest": "npm run test:clean",
+    "test:clean": "rimraf ./coverage",
+    "test": "cross-env NODE_ENV=test jest --coverage",
+    "test:ci": "npm run test -- --ci --no-cache --runInBand",
+    "test:watch": "cross-env NODE_ENV=test jest --watch",
     "precommit": "npm run lint:staged",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -16,6 +21,32 @@
   "lint-staged": {
     "*.js": "lint:eslint",
     "app/**/components/**/*.js": "lint:stylelint"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "app/**/*.{js,jsx}",
+      "!app/**/*.test.{js,jsx}",
+      "!app/*/RbGenerated*/*.{js,jsx}",
+      "!app/app.js",
+      "!app/routes.js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "\\/Loadable\\.js$",
+      "utils\\/helpers\\/.*\\.js$",
+      "\\/types\\.js$",
+      "\\/stories\\.js$"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "app"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "testRegex": "__tests__/.*\\.test\\.js$"
   },
   "repository": "https://github.com/arthur791004/aUI.git",
   "author": "arthur <arthur791004>",
@@ -33,9 +64,13 @@
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.1",
     "babel-plugin-module-resolver": "^2.7.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "cross-env": "^5.0.5",
+    "enzyme": "^2.9.1",
+    "enzyme-to-json": "^1.5.1",
     "eslint": "^4.4.1",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-import-resolver-babel-module": "^3.0.0",
@@ -45,8 +80,10 @@
     "eventsource-polyfill": "^0.9.6",
     "html-webpack-plugin": "^2.30.1",
     "husky": "^0.14.3",
+    "jest": "^20.0.4",
     "lint-staged": "^4.0.3",
     "react-hot-loader": "next",
+    "react-test-renderer": "^15.6.1",
     "stylelint": "^8.0.0",
     "stylelint-processor-styled-components": "^0.2.2",
     "webpack": "^3.4.1",
