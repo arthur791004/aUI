@@ -4,7 +4,7 @@
   "main": "app/app.js",
   "scripts": {
     "prebuild": "npm run build:clean",
-    "build": "cross-env NODE_ENV=production webpack --config ./webpack.js --color -p --progress",
+    "build": "cross-env NODE_ENV=production webpack --config ./webpack.config.js --color -p --progress",
     "build:clean": "npm run test:clean && rimraf ./build",
     "start": "webpack-dev-server --config ./webpack.config.js",
     "lint:eslint": "eslint --ignore-path .gitignore",
@@ -87,6 +87,7 @@
     "lint-staged": "^4.0.3",
     "react-hot-loader": "next",
     "react-test-renderer": "^15.6.1",
+    "rimraf": "^2.6.1",
     "stylelint": "^8.0.0",
     "stylelint-processor-styled-components": "^0.2.2",
     "webpack": "^3.4.1",
