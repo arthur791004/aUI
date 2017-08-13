@@ -39,6 +39,14 @@ jobs:
          paths:
            - ~/.cache/yarn
       - *persist_to_workspace
+  lint:
+    <<: *docker_default
+    steps:
+      - *attach_workspace
+      - run:
+          name: lint
+          command: |
+            yarn run lint:staged
   test:
     <<: *docker_default
     steps:
@@ -66,6 +74,9 @@ workflows:
   all:
     jobs:
       - bootstrap
+      - lint:
+          requires:
+            - bootstrap
       - test:
           requires:
             - bootstrap
