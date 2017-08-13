@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "app/app.js",
   "scripts": {
+    "prebuild": "npm run build:clean",
+    "build": "cross-env NODE_ENV=production webpack --config ./webpack.js --color -p --progress",
+    "build:clean": "npm run test:clean && rimraf ./build",
     "start": "webpack-dev-server --config ./webpack.config.js",
     "lint:eslint": "eslint --ignore-path .gitignore",
     "lint:stylelint": "stylelint",
