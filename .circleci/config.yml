@@ -65,7 +65,7 @@ workflows:
   version: 2
   all:
     jobs:
-      - bootstrap:
+      - bootstrap
       - test:
           requires:
             - bootstrap
