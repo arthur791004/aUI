@@ -7,6 +7,7 @@
     "build": "cross-env NODE_ENV=production webpack --config ./webpack.config.js --color -p --progress",
     "build:clean": "npm run test:clean && rimraf ./build",
     "start": "webpack-dev-server --config ./webpack.config.js",
+    "start:prod": "node server",
     "lint:eslint": "eslint --ignore-path .gitignore",
     "lint:stylelint": "stylelint",
     "lint:js": "npm run lint:eslint -- . ",
@@ -55,6 +56,10 @@
   "author": "arthur <arthur791004>",
   "license": "MIT",
   "dependencies": {
+    "ip": "^1.1.5",
+    "koa": "^2.3.0",
+    "koa-static": "^4.0.1",
+    "minimist": "^1.2.0",
     "polished": "^1.3.0",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
