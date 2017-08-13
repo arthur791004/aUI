@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { timingFunctions } from 'polished';
 
@@ -16,7 +17,7 @@ const Label = styled.label`
   top: 20px;
   z-index: 1;
   transform:
-    scale(${props => (props.isFocused ? 0.75: 1)})
+    scale(${props => (props.isFocused ? 0.75 : 1)})
     translate(0px, ${props => (props.isFocused ? -26 : 0)}px);
   transform-origin: left top 0px;
   pointer-events: none;
@@ -55,6 +56,14 @@ const UnderlineActive = UnderlineInactive.extend`
 `;
 
 class TextField extends PureComponent {
+  static propTypes = {
+    label: PropTypes.string,
+  }
+
+  defaultProps = {
+    label: '',
+  }
+
   state = {
     isFocused: false,
   }
