@@ -9,6 +9,7 @@
     "lint:js": "npm run lint:eslint -- . ",
     "lint:css": "npm run lint:stylelint -- \"app/**/components/**/*.js\"",
     "lint:staged": "lint-staged",
+    "precommit": "npm run lint:staged",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
