@@ -6,7 +6,7 @@
     "prebuild": "npm run build:clean",
     "build": "cross-env NODE_ENV=production webpack --config ./webpack.config.js --color -p --progress",
     "build:clean": "npm run test:clean && rimraf ./build",
-    "deploy": "./deploy.sh",
+    "deploy": "./scripts/deploy.sh",
     "start": "webpack-dev-server --config ./webpack.config.js",
     "lint:eslint": "eslint --ignore-path .gitignore",
     "lint:stylelint": "stylelint",
@@ -94,8 +94,5 @@
     "webpack": "^3.4.1",
     "webpack-dev-server": "^2.6.1",
     "webpack-hot-middleware": "^2.18.2"
-  },
-  "repository": {
-    "url": "git@github.com:arthur791004/aUI.git"
   }
 }
