@@ -68,6 +68,18 @@ jobs:
          key: *build_cache_key
          paths:
            - build
+  deploy:
+    <<: *docker_default
+    steps:
+      - *attach_workspace
+      - *restore_build
+      - setup_remote_docker
+      - run: |
+          echo "{\"SHA1\":\"${CIRCLE_SHA1}\",\"DATE\":\"$(date)\"}" > ./version.json
+          docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+          docker build -t arthur791004/aUI:$CIRCLE_SHA1 .
+          docker push arthur791004/aUI:$CIRCLE_SHA1
+          npm run deploy
 
 workflows:
   version: 2
@@ -83,3 +95,10 @@ workflows:
       - build:
           requires:
             - bootstrap
+      - deploy:
+          requires:
+            - test
+            - build
+          filters:
+            branches:
+              only: master
