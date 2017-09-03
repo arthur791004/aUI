@@ -79,6 +79,7 @@ jobs:
           docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
           docker build -t arthur791004/aUI:$CIRCLE_SHA1 .
           docker push arthur791004/aUI:$CIRCLE_SHA1
+          npm run deploy
 
 workflows:
   version: 2
