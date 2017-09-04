@@ -1,4 +1,4 @@
-# aUI
+# aUI [![CircleCI](https://circleci.com/gh/arthur791004/aUI.svg?style=svg)](https://circleci.com/gh/arthur791004/aUI)
 a react UI library
 
 # Technique Stack
