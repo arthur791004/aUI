@@ -18,5 +18,5 @@ ENV NODE_ENV production
 ENV PORT 80
 
 # run
-# CMD ["pm2-docker", "server"]
+CMD ["pm2-docker", "server"]
 

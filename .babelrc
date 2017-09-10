@@ -3,6 +3,7 @@
     ["env", {
       "modules": false,
       "useBuiltIn": true,
+      "node": true,
       "targets": {
         "browsers": [
           "> 1%",

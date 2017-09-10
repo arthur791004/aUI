@@ -5,7 +5,7 @@ references:
     environment:
       TZ: "/usr/share/zoneinfo/Asia/Taipei"
     docker:
-      - image: circleci/node:6.10.3
+      - image: circleci/node:8.3
   yarn_cache_key: &yarn_cache_key
     yarn-cache-{{ checksum "yarn.lock" }}
   restore_yarn: &restore_yarn
