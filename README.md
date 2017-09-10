@@ -1,5 +1,5 @@
 # aUI [![CircleCI](https://circleci.com/gh/arthur791004/aUI.svg?style=svg)](https://circleci.com/gh/arthur791004/aUI)
-a react UI library
+a react UI library (https://arthur791004.github.io/aUI/)
 
 # Technique Stack
 - react
