@@ -2,21 +2,47 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const libs = [
+  'react',
+  'react-dom',
+  'react-router-dom',
+  'prop-types',
+  'styled-components',
+  'polished',
+];
+const libsEntry = {};
+
 const plugins = [
   new webpack.HotModuleReplacementPlugin(),
   new webpack.NoEmitOnErrorsPlugin(),
+  new webpack.optimize.CommonsChunkPlugin({
+    names: libs,
+    filename: '[name].js',
+    minChunks: Infinity,
+  }),
   new HtmlWebpackPlugin({
     template: path.join(process.cwd(), 'app/index.html'),
     inject: true,
   }),
 ];
 
-module.exports = {
-  entry: [
-    'eventsource-polyfill', // Necessary hot reloading with IE
+libs.forEach((lib) => {
+  libsEntry[lib] = lib;
+});
+
+const entry = {
+  app: [
     'react-hot-loader/patch',
     path.join(process.cwd(), 'app/app.js'),
   ],
+  /*
+   * Fix: node v8+ keepAliveTimeout after 5s (#13391)
+   */
+  ...libsEntry,
+};
+
+module.exports = {
+  entry,
   output: {
     path: path.resolve(process.cwd(), 'build'),
     filename: '[name].js',
