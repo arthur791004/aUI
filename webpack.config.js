@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const libs = [
   'react',
   'react-dom',
+  'react-router',
   'react-router-dom',
   'prop-types',
   'styled-components',
