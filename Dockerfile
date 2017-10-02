@@ -1,5 +1,5 @@
 # install node
-FROM node:6
+FROM node:8.6.0
 
 MAINTAINER Arthur Chu "arthur791004@gmail.com"
 
