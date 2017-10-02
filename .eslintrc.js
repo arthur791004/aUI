@@ -2,7 +2,8 @@ module.exports = {
   "parser": "babel-eslint",
   "extends": "airbnb",
   "globals": {
-    "document": true
+    "document": true,
+    "FileReader": true
   },
   "settings": {
     "import/resolver": {
@@ -10,6 +11,7 @@ module.exports = {
     }
   },
   "rules": {
+    "no-mixed-operators": "off",
     "react/jsx-filename-extension": [
       1,
       {
