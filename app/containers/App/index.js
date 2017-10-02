@@ -4,6 +4,7 @@ import { withRouter } from 'react-router';
 import { Link, Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import TextField from '@/components/TextField';
+import Cropper from '@/components/Cropper';
 
 import './global-styles';
 
@@ -44,6 +45,7 @@ const AppWrapper = styled.div`
 
 const COMPONENTS = [
   'TextField',
+  'Cropper',
 ];
 
 const App = ({ location }) => (
@@ -63,6 +65,7 @@ const App = ({ location }) => (
     <MainLayout>
       <Switch location={location}>
         <Route exact path="/TextField" render={props => <TextField label="lable" {...props} />} />
+        <Route exact path="/Cropper" render={props => <Cropper {...props} />} />
         <Route render={() => <div>Demo Page</div>} />
       </Switch>
     </MainLayout>

@@ -10,6 +10,8 @@ const libs = [
   'prop-types',
   'styled-components',
   'polished',
+  'rxjs',
+  'symbol-observable',
 ];
 const libsEntry = {};
 
@@ -71,6 +73,8 @@ module.exports = {
     host: '0.0.0.0',
     disableHostCheck: true,
     hot: true,
+    historyApiFallback: true,
+    compress: true,
   },
 };
 
