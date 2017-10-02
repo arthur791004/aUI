@@ -23,6 +23,17 @@ const plugins = [
     filename: '[name].js',
     minChunks: Infinity,
   }),
+  new webpack.DefinePlugin({
+    'process.env': {
+      NODE_ENV: process.env.NODE_ENV === 'production'
+        ? JSON.stringify('production')
+        : JSON.stringify(process.env.NODE_ENV),
+      PUBLIC_URL: process.env.NODE_ENV === 'production'
+        ? JSON.stringify('/aUI')
+        : JSON.stringify('/'),
+    },
+  }),
+  new webpack.NamedModulesPlugin(),
   new HtmlWebpackPlugin({
     template: path.join(process.cwd(), 'app/index.html'),
     inject: true,
